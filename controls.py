@@ -1,5 +1,6 @@
 import pygame, sys
 from bullet import Bullet
+from Ino import Ino
 
 def events(screen, gun, bullets):
     """обработка событий"""
@@ -20,12 +21,13 @@ def events(screen, gun, bullets):
             elif event.key == pygame.K_a:
                 gun.mleft = False
 
-def update(bg_color, screen, gun, bullets):
+def update(bg_color, screen, gun, ino, bullets):
     """обновление экрана"""
     screen.fill(bg_color)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     gun.output()
+    ino.draw()
     pygame.display.flip()
 def updete_bullets(bullets):
     """обновляем позиции пулек"""
