@@ -1,5 +1,6 @@
 import pygame
 
+
 class Ino(pygame.sprite.Sprite):
     """прише"""
     def __init__(self, screen):
@@ -14,3 +15,7 @@ class Ino(pygame.sprite.Sprite):
 
     def draw(self):
         self.screen.blit(self.image, self.rect)
+
+    def update(self):
+        self.y += 0.02
+        self.rect.y = self.y
