@@ -1,6 +1,5 @@
-import pygame, controls
-from gun import GUN
-from Ino import Ino
+import pygame , controls
+from gun import Gun
 from pygame.sprite import Group
 
 def run():
@@ -9,13 +8,14 @@ def run():
     screen = pygame.display.set_mode((500, 600))
     pygame.display.set_caption("Заруба")
     bg_color = (0, 00, 00)
-    gun = GUN(screen)
+    gun = Gun(screen)
     bullets = Group()
-    ino = Ino(screen)
+    inos = Group()
+    controls.bild_army(screen, inos)
     while True:
         controls.events(screen, gun,  bullets)
         gun.updategun()
-        controls.update(bg_color, screen, gun, ino, bullets)
+        controls.update(bg_color, screen, gun, inos, bullets)
         controls.updete_bullets(bullets)
 
 run()

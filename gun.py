@@ -1,6 +1,6 @@
 import pygame
 
-class GUN():
+class Gun():
 
     def __init__(self, screen):
 
