@@ -9,8 +9,12 @@ def events(screen, gun, bullets):
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_d:
-                gun.mright = True
+            if event.key == pygame.K_w:
+                gun.speed += 0.01
+            elif event.key == pygame.K_s:
+                gun.speed -= 0.01
+            elif event.key == pygame.K_d:
+               gun.mright = True
             elif event.key == pygame.K_a:
                 gun.mleft = True
             elif event.key == pygame.K_SPACE:
@@ -26,6 +30,7 @@ def update(bg_color, screen, gun, inos, bullets):
     """обновление экрана"""
 
     screen.fill(bg_color)
+
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     gun.output()

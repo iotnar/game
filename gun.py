@@ -13,6 +13,7 @@ class Gun():
         self.rect.bottom = self.screen_rect.bottom
         self.mright = False
         self.mleft = False
+        self.speed = 0.05
 
     def output(self):
         """рисование пушки"""
@@ -25,10 +26,10 @@ class Gun():
         """обновление позиции пушки"""
 
 
-        if self.mright == True and self.rect.right < self.screen_rect.right:
-            self.center += 1
+        if self.mright == True and self.rect.right < self.screen_rect.right and self.speed >= 0:
+            self.center += self.speed  #скорость пушки
 
-        if self.mleft == True and self.rect.left > 0:
-             self.center -= 1
+        if self.mleft == True and self.rect.left > 0 and self.speed >= 0:
+             self.center -= self.speed
 
         self.rect.centerx = self.center

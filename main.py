@@ -1,4 +1,5 @@
-import pygame, controls
+import pygame
+import controls
 from gun import Gun
 from pygame.sprite import Group
 
