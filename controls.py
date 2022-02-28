@@ -44,7 +44,7 @@ def update(bg_color, screen, gun, inos, bullets):
     inos.draw(screen)
     pygame.display.flip()
 
-def update_bullets(bullets, inos):
+def update_bullets(screen, bullets, inos, vzruv):
     """обновляем позиции пулек"""
 
     bullets.update()
@@ -52,7 +52,13 @@ def update_bullets(bullets, inos):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
 
-    collisions = pygame.sprite.groupcollide(bullets, inos, True, True)
+    if pygame.sprite.groupcollide(bullets, inos, True, True):
+        #x = self.ino.x             #разобраться не работает нужно получить координаты взрыва
+       # y = self.ino.y
+        vzruv.play()
+        pygame.draw.circle(screen, (200, 200, 100), (x, y), 10)
+        pygame.display.flip()
+
 
 def update_inos(inos):
     inos.update()

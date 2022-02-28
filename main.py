@@ -10,7 +10,7 @@ pygame.mixer.music.load('Wav/start_muzik.mp3')
 pygame.mixer.music.play()
 
 gun_shot = pygame.mixer.Sound('Wav/vyistrel-s-vibratsiey.wav')
-dvizh = pygame.mixer.Sound('Wav/dvizh.wav')
+vzruv = pygame.mixer.Sound('Wav/vzruv.wav')
 
 
 
@@ -34,7 +34,7 @@ def run():
         controls.events(screen, gun,  bullets, gun_shot)
         gun.updategun()
         controls.update(bg_color, screen, gun, inos, bullets)
-        controls.update_bullets(bullets, inos)
+        controls.update_bullets(screen, bullets, inos, vzruv)
         controls.update_inos(inos)
         clock.tick(FPS)
 
