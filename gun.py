@@ -13,7 +13,7 @@ class Gun():
         self.rect.bottom = self.screen_rect.bottom
         self.mright = False
         self.mleft = False
-        self.speed = 0.05
+        self.speed = 0.08
 
     def output(self):
         """рисование пушки"""

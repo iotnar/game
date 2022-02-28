@@ -1,23 +1,30 @@
-import pygame, sys
+import pygame
+import pygame.mixer
+import sys
 from bullet import Bullet
 from ino import Ino
 
 
-def events(screen, gun, bullets):
+def events(screen, gun, bullets, gun_shot):
     """обработка событий"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w:
-                gun.speed += 0.01
+                gun.speed += 0.05
             elif event.key == pygame.K_s:
-                gun.speed -= 0.01
+                gun.speed -= 0.05
+
             elif event.key == pygame.K_d:
                gun.mright = True
+
             elif event.key == pygame.K_a:
                 gun.mleft = True
+
             elif event.key == pygame.K_SPACE:
+                gun_shot.play()
+
                 new_bullet = Bullet(screen, gun)
                 bullets.add(new_bullet)
         elif event.type == pygame.KEYUP:

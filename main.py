@@ -2,9 +2,22 @@ import pygame
 import controls
 from gun import Gun
 from pygame.sprite import Group
+from random import randint
+
+pygame.mixer.pre_init
+pygame.init()
+pygame.mixer.music.load('Wav/start_muzik.mp3')
+pygame.mixer.music.play()
+
+gun_shot = pygame.mixer.Sound('Wav/vyistrel-s-vibratsiey.wav')
+dvizh = pygame.mixer.Sound('Wav/dvizh.wav')
+
+
+
 
 
 def run():
+
 
     pygame.init()
     screen = pygame.display.set_mode((500, 600))
@@ -18,7 +31,7 @@ def run():
     controls.bild_army(screen, inos)
 
     while True:
-        controls.events(screen, gun,  bullets)
+        controls.events(screen, gun,  bullets, gun_shot)
         gun.updategun()
         controls.update(bg_color, screen, gun, inos, bullets)
         controls.update_bullets(bullets, inos)
